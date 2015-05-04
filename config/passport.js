@@ -120,10 +120,6 @@ module.exports = function(passport) {
 
     }));
 
-
-
-
-
     // =========================================================================
     // FACEBOOK ================================================================
     // =========================================================================
@@ -133,6 +129,7 @@ module.exports = function(passport) {
         clientID        : configAuth.facebookAuth.clientID,
         clientSecret    : configAuth.facebookAuth.clientSecret,
         callbackURL     : configAuth.facebookAuth.callbackURL
+
     },
 
     // facebook will send back the token and profile
@@ -174,5 +171,7 @@ module.exports = function(passport) {
 
             });
         });
+
+    }));
 
 };
