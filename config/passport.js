@@ -130,7 +130,7 @@ module.exports = function(passport) {
         // pull in our app id and secret from our auth.js file
         clientID        : configAuth.facebookAuth.clientID,
         clientSecret    : configAuth.facebookAuth.clientSecret,
-        callbackURL     : configAuth.facebookAuth.callbackURL
+        callbackURL     : configAuth.facebookAuth.callbackURL,
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
     },
 
@@ -166,9 +166,7 @@ module.exports = function(passport) {
                         newUser.save(function(err) {
                             if (err)
                                 throw err;
-
-                            // if successful, return the new user
-                            return done(null, newUser);
+                            return done(null, user);
                         });
                     }
 

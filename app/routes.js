@@ -69,7 +69,7 @@ module.exports = function(app, passport) {
     app.get('/auth/twitter', passport.authenticate('twitter'));
 
     // handle the callback after twitter has authenticated the user
-    app.get('/auth/twitter/callback', 
+    app.get('/auth/twitter/callback',
         passport.authenticate('twitter', {
             successRedirect : '/profile',
             failureRedirect : '/'
@@ -107,7 +107,7 @@ module.exports = function(app, passport) {
 // =============================================================================
 
     // locally --------------------------------
-    app.get('/connect/local', function(req, res){
+    app.get('/connect/local', function(req, res) {
         res.render('connect-local.ejs', { message: req.flash('loginMessage') });
     });
     app.post('/connect/local', passport.authenticate('local-signup', {
@@ -118,8 +118,8 @@ module.exports = function(app, passport) {
         
     // facebook -------------------------------
 
-    // send to facebook to do the authetication
-    app.get('/connect/facebook', passport.authorize('facebook', {scope : 'email'}));
+    // send to facebook to do the authentication
+    app.get('/connect/facebook', passport.authorize('facebook', { scope : 'email' }));
 
     // handle the callback after facebook has authorized the user
     app.get('/connect/facebook/callback',
@@ -131,7 +131,7 @@ module.exports = function(app, passport) {
     // twitter --------------------------------
 
     // send to twitter to do the authetication
-    app.get('/connect/facebook', passport.authorize('twitter'), { scope: 'email'});
+    app.get('/connect/twitter', passport.authorize('twitter', { scope: 'email'}));
 
     // handle the callback after twitter has authorized the user
     app.get('/connect/twitter/callback',
